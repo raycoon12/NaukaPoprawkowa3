@@ -4,13 +4,15 @@ import java.util.*;
 public class Person {
     private String first;
     private String last;
-    private LocalDate date;
+    private LocalDate birthdate;
+    private LocalDate deathdate;
     private Set<Person> children = new HashSet<>();
 
-    public Person(String first, String last, LocalDate date) {
+    public Person(String first, String last, LocalDate birthdate, LocalDate deathdate) {
         this.first = first;
         this.last = last;
-        this.date = date;
+        this.birthdate = birthdate;
+        this.deathdate = deathdate;
     }
 
     public String getFirst() {
@@ -22,7 +24,7 @@ public class Person {
     }
 
     public LocalDate getDate() {
-        return date;
+        return birthdate;
     }
     public List<Person> getChildren() {
         List<Person> sortedChildren = new ArrayList<>(children);
@@ -30,14 +32,7 @@ public class Person {
         return sortedChildren;
     }
 
-    @Override
-    public String toString() {
-        return "Person {" +
-                "first = '" + first + '\'' +
-                ", last = '" + last + '\'' +
-                ", date = " + date +
-                '}';
-    }
+
     public boolean adopt(Person child){
         return children.add(child);
     }
@@ -47,8 +42,8 @@ public class Person {
         LocalDate youngestChildAge = LocalDate.MIN;
         Person youngestChild = null;
         for (Person child : children){
-            if(child.date.isAfter(youngestChildAge)) {
-                youngestChildAge = child.date;
+            if(child.birthdate.isAfter(youngestChildAge)) {
+                youngestChildAge = child.birthdate;
                 youngestChild = child;
             }
         }
@@ -61,8 +56,8 @@ public class Person {
         LocalDate oldestChildAge = LocalDate.MAX;
         Person oldestChild = null;
         for (Person child : children){
-            if(child.date.isBefore(oldestChildAge)) {
-                oldestChildAge = child.date;
+            if(child.birthdate.isBefore(oldestChildAge)) {
+                oldestChildAge = child.birthdate;
                 oldestChild = child;
             }
         }
