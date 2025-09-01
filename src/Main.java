@@ -1,21 +1,13 @@
 import java.time.LocalDate;
-import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
-    public static void main(String[] args) {
-        ArrayList<Person> people = new ArrayList<>();
+    public static void main(String[] args){
+        String path = "family.csv";
+        List<Person> people = Person.fromCsv(path);
 
-//        for (Person p : people) {
-//            System.out.println(p);
-//        }
-
-//        System.out.println(person1.getYoungestChild().getFirst()
-//                + " " + person1.getYoungestChild().getLast() + " is "
-//                + person1.getFirst() + " " + person1.getLast() + "'s youngest child");
-//
-//        System.out.println(person1.getOldestChild().getFirst()
-//                + " " + person1.getOldestChild().getLast() + " is "
-//                + person1.getFirst() + " " + person1.getLast() + "'s oldest child");
-
+        for (Person p : people) {
+            System.out.println(p.toString());
+        }
     }
 }

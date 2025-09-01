@@ -8,7 +8,7 @@ public class Family {
             add(p);
     }
     public void add(Person personToAdd){
-        String newKey = personToAdd.getFirst() + " " + personToAdd.getLast();
+        String newKey = personToAdd.getFname() + " " + personToAdd.getLname();
         if (family.containsKey(newKey))
             return;
         family.put(newKey, personToAdd);
